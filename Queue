@@ -1,0 +1,52 @@
+#include<stdio.h>
+#define n 5
+void main(){
+	int i, j=1, queue[n], front=0, rear=0, x=n, ch=1;
+	printf("1. Insert \n2. Delete \n3. Display \n4.Exit");
+
+	while(ch){
+		printf("\nEnter Choice: ");
+		scanf("%d", &ch);
+
+		switch(ch){
+			case 1:
+				if(rear==x){
+					printf("\nQueue is full!!!");
+//					exit(0);
+				}else{
+					printf("\nEnter number %d: ",j++);
+					scanf("%d", &queue[rear++]);
+				}
+				break;
+				
+			case 2:
+				if(front==rear){
+					printf("\nQueue is Empty!!!");
+//					exit(0);
+				}else{
+					printf("\n%d Deleted\n ",queue[front++]);
+					x++;
+				}
+				break;
+				
+			case 3:
+				if(front==rear){
+					printf("\nQueue is Empty!!!");
+//					exit(0);
+				}else{
+					printf("\nElement in Queue:\n");
+					for(i=front; i<rear; i++){
+						printf("%d\t",queue[i]);
+					}
+					printf("\n");
+				}
+				break;
+				
+			case 4:
+				exit(0);	
+			default:
+				printf("\nInvalid Choice!!!");	
+		}
+	}
+	return 0;
+}
